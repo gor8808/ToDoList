@@ -1,0 +1,71 @@
+﻿<Window x:Class="ToDoList.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDoList"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.05*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1" Grid.RowSpan="1" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <DatePicker x:Name="DataPicker"/>
+            <Button Grid.Row="1" Content="Add new task" Click="Button_Click"/>
+            <TextBox x:Name="TaskDesription" Grid.Column="1" Grid.RowSpan="2" Text="New Task description"/>
+        </Grid>
+
+        <ListView x:Name="Tasks" Grid.Row="2" Grid.Column="1" ScrollViewer.CanContentScroll="False" >
+            <ListViewItem BorderBrush="Black" BorderThickness="0,0,0,1">
+                <Grid Width="700">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" TextAlignment="Center">Date</TextBlock>
+                    <TextBlock Grid.Column="1" TextAlignment="Center">Done</TextBlock>
+                    <TextBlock Grid.Column="2" TextAlignment="Center">Task</TextBlock>
+                    <TextBlock Grid.Column="3" TextAlignment="Center">Del</TextBlock>
+                </Grid>
+            </ListViewItem>
+            <ListViewItem BorderBrush="Black" BorderThickness="0,0,0,1">
+                <Grid Width="700">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" TextAlignment="Center">25/2/2020</TextBlock>
+                    <CheckBox  Grid.Column="1" HorizontalAlignment="Center" Click="CheckBox_Clicked"/>
+                    <TextBlock Grid.Column="2" TextAlignment="Center">Some Task that I must do</TextBlock>
+                    <Button    Grid.Column="3" Content="X" Background="DarkRed" Click="DeleteTask" />
+                    
+                </Grid>
+            </ListViewItem>
+        </ListView>
+
+
+
+    </Grid>
+    
+</Window>
